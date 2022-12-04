@@ -31,7 +31,7 @@ Was implemented three solution ways for this problem.
 2. The classic algorithm with [memoization](https://en.wikipedia.org/wiki/Memoization).
 3. [Levenshtein Edit Distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
 
-## 🛠️ Built With
+## Built With
 All the examples were implemented in C#.
 * [Programming language C#](https://dotnet.microsoft.com/en-us/learn/csharp)
 * [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/)
