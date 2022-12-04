@@ -1,8 +1,21 @@
 ﻿using System.Diagnostics;
 
+
+Stopwatch sw1 = Stopwatch.StartNew();
+Console.Write($"Fibonacci (45) - {Fibonacci(45)}");
+sw1.Stop();
+Console.WriteLine($"\r\nFinalizou em {sw1.Elapsed.TotalSeconds} segundos");
+
+Console.WriteLine("-----------------------------------------------------");
+
+Stopwatch sw2 = Stopwatch.StartNew();
+Console.Write($"FibonacciMemoization (92) - {FibonacciMemoization(92)}");
+sw2.Stop();
+Console.WriteLine($"\r\nFinalizou em {sw2.Elapsed.TotalSeconds} segundos");
+
 Stopwatch sw = Stopwatch.StartNew();
 for (int i = 1; i <= 42; i++)
-    Console.WriteLine($"{i.ToString("00")} - {Fibonacci(i)} ");
+    Console.WriteLine($"{i.ToString("00")} - {FibonacciMemoization(i)} ");
 sw.Stop();
 
 Console.WriteLine($"\r\nFinalizou em {sw.Elapsed.TotalSeconds} segundos");
@@ -65,7 +78,7 @@ static long FibonacciMatrixExponentiation(long n)
 
         aux1 = (c * c) + (d * d);
         aux2 = d * (2 * c + d);
-       
+
         c = aux1;
         d = aux2;
 
