@@ -2,23 +2,24 @@
 
 
 Stopwatch sw1 = Stopwatch.StartNew();
-Console.Write($"Fibonacci (45) - {Fibonacci(45)}");
+Console.Write($"Fibonacci (42) - {Fibonacci(42)}");
 sw1.Stop();
 Console.WriteLine($"\r\nFinalizou em {sw1.Elapsed.TotalSeconds} segundos");
 
 Console.WriteLine("-----------------------------------------------------");
 
 Stopwatch sw2 = Stopwatch.StartNew();
-Console.Write($"FibonacciMemoization (92) - {FibonacciMemoization(92)}");
+Console.Write($"FibonacciTailCallOptimization (92) - {FibonacciTailCallOptimization(92)}");
 sw2.Stop();
 Console.WriteLine($"\r\nFinalizou em {sw2.Elapsed.TotalSeconds} segundos");
 
-Stopwatch sw = Stopwatch.StartNew();
-for (int i = 1; i <= 42; i++)
-    Console.WriteLine($"{i.ToString("00")} - {FibonacciMemoization(i)} ");
-sw.Stop();
+Console.WriteLine("-----------------------------------------------------");
 
-Console.WriteLine($"\r\nFinalizou em {sw.Elapsed.TotalSeconds} segundos");
+Stopwatch sw3 = Stopwatch.StartNew();
+Console.Write($"FibonacciMemoization (92) - {FibonacciMemoization(92)}");
+sw3.Stop();
+Console.WriteLine($"\r\nFinalizou em {sw3.Elapsed.TotalSeconds} segundos");
+
 Console.ReadKey();
 
 static long Fibonacci(long n)
@@ -89,5 +90,10 @@ static long FibonacciMatrixExponentiation(long n)
 }
 
 
+static long FibonacciTailCallOptimization(long n, long a = 0, long b = 1)
+{
+    if (n == 1)
+        return b;
 
-
+    return FibonacciTailCallOptimization(n - 1, b, a + b);
+}
